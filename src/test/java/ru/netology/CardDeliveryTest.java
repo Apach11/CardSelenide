@@ -1,6 +1,7 @@
 package ru.netology;
 
 import com.codeborne.selenide.Condition;
+
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
@@ -15,6 +16,8 @@ import static com.codeborne.selenide.Selenide.open;
 
 
 public class CardDeliveryTest {
+
+
     private String generateDate(int addDays, String pattern) {
         return LocalDate.now().plusDays(addDays).format(DateTimeFormatter.ofPattern(pattern));
     }
@@ -35,7 +38,6 @@ public class CardDeliveryTest {
         $(".notification__content")
                 .shouldBe(Condition. visible, Duration.ofSeconds(15))
                 .shouldHave(Condition. exactText("Встреча успешно забронирована на " + planningDate));
-
 
     }
 }
